@@ -15,6 +15,7 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tony-quan-portfolio.vercel.app"),
   title: "Tran Minh Quan (Tony) | Student Portfolio",
   description:
     "Personal portfolio of Tran Minh Quan, a student at The American School, featuring his writing, interests, and plans to teach younger students in Vietnam.",
@@ -28,6 +29,20 @@ export const metadata: Metadata = {
       "Writing, interests, and a future teaching program for younger students in Vietnam.",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1536,
+        height: 1024,
+        alt: "Tran Minh Quan student portfolio and ten-essay writing collection",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tran Minh Quan (Tony) | Student Portfolio",
+    description: "Ten essays exploring AI and Vietnamese culture.",
+    images: ["/og.png"],
   },
 };
 

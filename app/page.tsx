@@ -12,21 +12,163 @@ type WritingPiece = {
   content: string;
   image: string;
   pdf: string;
+  pages: number;
+  words: number;
 };
 
-// Replace these placeholder entries when Tony's writing pieces are ready.
-const writingPieces: WritingPiece[] = Array.from({ length: 10 }, (_, index) => ({
-  id: index + 1,
-  title: `Writing Piece ${String(index + 1).padStart(2, "0")}`,
-  category: "Category to be added",
-  date: "Date to be added",
-  topic: "Topic to be added",
-  summary: "A short introduction to this writing piece will be added here.",
-  content:
-    "The full writing piece will appear here. This reading view is ready for the final title, date, summary, and complete text.",
-  image: `/images/writing-placeholder-${String(index + 1).padStart(2, "0")}.jpg`,
-  pdf: "",
-}));
+// Tony's essays are stored here so titles and descriptions remain easy to update.
+const writingPieces: WritingPiece[] = [
+  {
+    id: 1,
+    title: "Is a Farmer Still a Farmer?",
+    category: "AI & Rural Life",
+    date: "2026",
+    topic: "AI drones in the Mekong Delta",
+    summary:
+      "This essay examines whether AI crop-spraying drones protect Mekong Delta farmers while changing the knowledge and attention tied to working the land.",
+    content:
+      "Farmers may gain steadier harvests and financial security from agricultural drones. The essay asks what happens to a farmer's identity when personal knowledge of the land is increasingly transferred to software.",
+    image: "/images/writing/01-ai-drones-and-vietnamese-farming.webp",
+    pdf: "/writing/01-ai-drones-and-vietnamese-farming.pdf",
+    pages: 4,
+    words: 1691,
+  },
+  {
+    id: 2,
+    title: "Calculated or Sacred?",
+    category: "AI & Tradition",
+    date: "2026",
+    topic: "AI horoscope applications and Tử Vi",
+    summary:
+      "This essay considers whether an AI horoscope app offers useful objectivity or removes the human wisdom and mystery central to Vietnamese fortune telling.",
+    content:
+      "The discussion compares calculated predictions with the judgement of a traditional thầy tử vi. It asks whether spiritual guidance comes from an accurate system or from the experience of the person interpreting it.",
+    image: "/images/writing/02-ai-horoscopes-and-fortune-telling.webp",
+    pdf: "/writing/02-ai-horoscopes-and-fortune-telling.pdf",
+    pages: 4,
+    words: 1444,
+  },
+  {
+    id: 3,
+    title: "Can Filial Piety Be Automated?",
+    category: "AI & Family",
+    date: "2026",
+    topic: "Voice assistants and Hiếu Thảo",
+    summary:
+      "This essay explores whether voice assistants can help adult children care for elderly parents while economic migration separates Vietnamese families.",
+    content:
+      "An AI assistant can support daily check-ins and health monitoring from a distance. The essay weighs that practical help against the warmth and moral reciprocity of direct human care.",
+    image: "/images/writing/03-ai-and-filial-piety.webp",
+    pdf: "/writing/03-ai-and-filial-piety.pdf",
+    pages: 4,
+    words: 1708,
+  },
+  {
+    id: 4,
+    title: "Can a Machine Be Honored?",
+    category: "AI & Remembrance",
+    date: "2026",
+    topic: "AI avatars and ancestor worship",
+    summary:
+      "This essay studies the use of AI avatars during Vietnamese death anniversaries and asks whether a digital replica can carry genuine spiritual meaning.",
+    content:
+      "Griefbots may help families remember a loved one and process loss. The essay considers consent and sincere ritual effort when deciding whether such technology supports the practice of Hiếu.",
+    image: "/images/writing/04-ai-avatars-and-ancestor-worship.webp",
+    pdf: "/writing/04-ai-avatars-and-ancestor-worship.pdf",
+    pages: 4,
+    words: 1417,
+  },
+  {
+    id: 5,
+    title: "When AI Tells the Story of a Handmade Product",
+    category: "AI & Craft",
+    date: "2026",
+    topic: "AI marketing in Vietnamese craft villages",
+    summary:
+      "This essay asks whether AI-written product stories preserve an artisan's voice or turn a handmade object into an ordinary online product.",
+    content:
+      "Digital tools may hide the personal history behind a craft. They can also help family workshops reach customers and remain financially active, which gives communities a difficult choice about cultural preservation.",
+    image: "/images/writing/05-ai-and-the-artisans-voice.webp",
+    pdf: "/writing/05-ai-and-the-artisans-voice.pdf",
+    pages: 4,
+    words: 1675,
+  },
+  {
+    id: 6,
+    title: "When a Machine Learning Tool Locks an Oral Epic into a Digital Script",
+    category: "AI & Heritage",
+    date: "2026",
+    topic: "Speech-to-text tools and oral epics",
+    summary:
+      "This essay examines whether transcribing Vietnam's oral epics protects endangered traditions or prevents them from changing through live performance.",
+    content:
+      "A digital record can help minority communities preserve stories as migration threatens language transmission. The essay argues that the community itself should decide how a transcript supports the living tradition.",
+    image: "/images/writing/06-ai-and-oral-epics.webp",
+    pdf: "/writing/06-ai-and-oral-epics.pdf",
+    pages: 4,
+    words: 1753,
+  },
+  {
+    id: 7,
+    title: "Can an AI Assistant Generate True Phước?",
+    category: "AI & Buddhism",
+    date: "2026",
+    topic: "Robot chanting and spiritual merit",
+    summary:
+      "This essay considers whether robotic chanting can generate Phước when a machine lacks the intention and discipline associated with a traditional monk.",
+    content:
+      "The technology cannot form a purposeful mind of its own. It may still act as a tool that helps listeners become mindful, raising a question about whether merit begins with the chant or within the listener.",
+    image: "/images/writing/07-ai-and-phuoc.webp",
+    pdf: "/writing/07-ai-and-phuoc.pdf",
+    pages: 4,
+    words: 1463,
+  },
+  {
+    id: 8,
+    title: "Migration, AI Guardian Spirits, and the Vietnamese Communal House",
+    category: "AI & Community",
+    date: "2026",
+    topic: "Digital guardian spirits and the đình",
+    summary:
+      "This essay explores whether an online village guardian spirit helps young people maintain their heritage after moving away from rural communities.",
+    content:
+      "Digital access can keep local memory present across distance. The essay also considers how solitary interaction with an app may weaken the physical community that gives village ritual its meaning.",
+    image: "/images/writing/08-ai-guardian-spirits.webp",
+    pdf: "/writing/08-ai-guardian-spirits.pdf",
+    pages: 4,
+    words: 1511,
+  },
+  {
+    id: 9,
+    title: "Can a Machine Give a Blessing?",
+    category: "AI & Ritual",
+    date: "2026",
+    topic: "AI calligraphy and the Tết tradition of Xin Chữ",
+    summary:
+      "This essay asks whether robotic calligraphy can offer a meaningful Tết blessing when it removes the personal conversation with an Ông Đồ.",
+    content:
+      "Automation can reproduce precise characters while losing the effort behind the original ritual. The essay considers whether sincerity belongs to the calligrapher's hand or to the recipient's own intention.",
+    image: "/images/writing/09-ai-calligraphy-and-xin-chu.webp",
+    pdf: "/writing/09-ai-calligraphy-and-xin-chu.pdf",
+    pages: 4,
+    words: 1429,
+  },
+  {
+    id: 10,
+    title: "AI Résumé Screening and the Limits of Rule-Based Fairness",
+    category: "AI & Ethics",
+    date: "2026",
+    topic: "Automated hiring in Vietnam",
+    summary:
+      "This essay compares the consistency of automated résumé screening with the human judgement needed to recognise an applicant's individual circumstances.",
+    content:
+      "Algorithms may reduce some forms of personal bias while introducing hidden standards. The essay asks whether fair hiring should follow fixed criteria or make room for human equity through direct conversation.",
+    image: "/images/writing/10-ai-resume-screening.webp",
+    pdf: "/writing/10-ai-resume-screening.pdf",
+    pages: 4,
+    words: 1605,
+  },
+];
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -326,16 +468,16 @@ function GoalSection() {
 function WritingCard({ piece, onOpen }: { piece: WritingPiece; onOpen: (piece: WritingPiece) => void }) {
   return (
     <article className="writing-card">
-      <div className="writing-thumbnail" aria-label={`Placeholder thumbnail for ${piece.title}`}>
-        <span>{String(piece.id).padStart(2, "0")}</span>
-        <div aria-hidden="true" />
+      <div className="writing-thumbnail">
+        <img src={piece.image} alt={`First page of ${piece.title}`} loading="lazy" />
+        <span aria-hidden="true">{String(piece.id).padStart(2, "0")}</span>
       </div>
       <div className="writing-card-body">
         <p className="writing-meta">{piece.category} · {piece.date}</p>
         <h3>{piece.title}</h3>
         <p>{piece.summary}</p>
         <button type="button" onClick={() => onOpen(piece)}>
-          Read more <span aria-hidden="true">↗</span>
+          Read essay <span aria-hidden="true">↗</span>
         </button>
       </div>
     </article>
@@ -367,19 +509,21 @@ function WritingModal({ piece, onClose }: { piece: WritingPiece | null; onClose:
         aria-labelledby="writing-modal-title"
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <button className="modal-close" type="button" onClick={onClose} aria-label="Close writing piece">×</button>
+        <button className="modal-close" type="button" onClick={onClose} aria-label="Close writing piece" autoFocus>×</button>
         <p className="eyebrow">Writing portfolio / {String(piece.id).padStart(2, "0")}</p>
         <h2 id="writing-modal-title">{piece.title}</h2>
         <div className="modal-details">
-          <span>{piece.category}</span><span>{piece.date}</span><span>{piece.topic}</span>
+          <span>{piece.category}</span><span>{piece.date}</span><span>{piece.pages} pages</span><span>{piece.words.toLocaleString()} words</span>
         </div>
         <div className="modal-rule" />
         <p className="modal-summary">{piece.summary}</p>
         <p>{piece.content}</p>
-        <aside>
-          <span>Portfolio note</span>
-          This is a placeholder reading view. Tony&apos;s completed piece and optional PDF will be added here later.
-        </aside>
+        <p className="modal-topic">Topic: {piece.topic}</p>
+        <div className="modal-actions">
+          <a className="button button-primary" href={piece.pdf} target="_blank" rel="noreferrer">Open full PDF <span aria-hidden="true">↗</span></a>
+          <a className="button button-secondary" href={piece.pdf} download>Download essay</a>
+        </div>
+        <iframe className="pdf-reader" src={`${piece.pdf}#view=FitH`} title={`Full essay: ${piece.title}`} />
       </article>
     </div>
   );
@@ -394,10 +538,10 @@ function WritingSection() {
         <div className="writing-heading-row">
           <SectionHeading
             eyebrow="05 / Writing portfolio"
-            title="A growing collection of ideas."
-            intro="Ten pieces will be added here. Each card is prepared for the final title, category, summary, full text, and optional PDF."
+            title="Ten essays exploring technology and culture."
+            intro="Each essay begins with a question about how artificial intelligence may affect Vietnamese traditions and everyday life. Open any card to read the complete paper."
           />
-          <p className="collection-count"><span>10</span> pieces reserved</p>
+          <p className="collection-count"><span>10</span> completed essays</p>
         </div>
         <div className="writing-grid">
           {writingPieces.map((piece) => (

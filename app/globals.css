@@ -874,37 +874,51 @@ h2 {
 }
 
 .writing-thumbnail {
+  position: relative;
   min-height: 260px;
-  padding: 23px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   overflow: hidden;
   background: var(--soft-blue);
   color: var(--teal-dark);
 }
 
-.writing-card:nth-child(4n + 2) .writing-thumbnail,
-.writing-card:nth-child(4n + 3) .writing-thumbnail {
-  background: #f0eee5;
-  color: #9a7634;
+.writing-thumbnail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24, 49, 83, 0.05), rgba(24, 49, 83, 0.28));
+  pointer-events: none;
+}
+
+.writing-thumbnail img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .3s ease;
+}
+
+.writing-card:hover .writing-thumbnail img {
+  transform: scale(1.025);
 }
 
 .writing-thumbnail > span {
+  position: absolute;
+  z-index: 1;
+  left: 18px;
+  bottom: 16px;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
   font-family: var(--font-display), serif;
-  font-size: 42px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1;
-}
-
-.writing-thumbnail > div {
-  width: 140px;
-  height: 140px;
-  align-self: center;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  opacity: .28;
-  transform: translate(35%, 35%);
 }
 
 .writing-card-body {
@@ -970,7 +984,7 @@ h2 {
 
 .writing-modal {
   position: relative;
-  width: min(760px, 100%);
+  width: min(1120px, 100%);
   max-height: calc(100svh - 56px);
   padding: clamp(36px, 6vw, 70px);
   overflow-y: auto;
@@ -1047,6 +1061,28 @@ h2 {
   font-weight: 800;
   letter-spacing: .12em;
   text-transform: uppercase;
+}
+
+.modal-topic {
+  padding-top: 4px;
+  color: var(--teal-dark) !important;
+  font-size: 12px !important;
+  font-weight: 700;
+}
+
+.modal-actions {
+  margin: 28px 0 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pdf-reader {
+  width: 100%;
+  height: min(720px, 68svh);
+  display: block;
+  border: 1px solid var(--border);
+  background: white;
 }
 
 .reflection {
@@ -1529,12 +1565,12 @@ h2 {
   }
 
   .writing-thumbnail {
-    min-height: 150px;
+    min-height: 190px;
   }
 
-  .writing-thumbnail > div {
-    align-self: flex-end;
-    margin-top: -60px;
+  .writing-thumbnail img {
+    min-height: 190px;
+    max-height: 280px;
   }
 
   .modal-backdrop {
@@ -1544,6 +1580,14 @@ h2 {
   .writing-modal {
     max-height: calc(100svh - 24px);
     padding: 48px 24px 32px;
+  }
+
+  .modal-actions {
+    display: grid;
+  }
+
+  .pdf-reader {
+    height: 520px;
   }
 
   .field-row,
