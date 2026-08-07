@@ -185,7 +185,7 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About Me", href: "#about" },
   { label: "Interests", href: "#interests" },
-  { label: "My Goal", href: "#goal" },
+  { label: "Projects", href: "#goal" },
   { label: "Writing", href: "#writing" },
   { label: "Contact", href: "#contact" },
 ];
@@ -460,52 +460,178 @@ function ValuesSection() {
   );
 }
 
-function GoalRoadmap() {
-  const steps = [
-    ["01", "Plan", "Design beginner-friendly lessons"],
-    ["02", "Create", "Prepare activities and learning materials"],
-    ["03", "Teach", "Work with small groups of students"],
-    ["04", "Grow", "Reflect, improve, and expand the program"],
-  ];
-
+function ImpactMediaPlaceholder({
+  label,
+  type = "photo",
+  className = "",
+}: {
+  label: string;
+  type?: "photo" | "screen";
+  className?: string;
+}) {
   return (
-    <ol className="roadmap">
-      {steps.map(([number, title, text]) => (
-        <li key={number}>
-          <span className="roadmap-number">{number}</span>
-          <div><h3>{title}</h3><p>{text}</p></div>
-        </li>
-      ))}
-    </ol>
+    <figure className={`impact-media-placeholder impact-media-${type} ${className}`.trim()}>
+      <div role="img" aria-label={`${label} placeholder`}>
+        <span>Media placeholder</span>
+        <strong>{label}</strong>
+      </div>
+      <figcaption>{label}</figcaption>
+    </figure>
+  );
+}
+
+function ProjectLogoPlaceholder({ name, initials }: { name: string; initials: string }) {
+  return (
+    <div className="project-logo-placeholder" role="img" aria-label={`${name} logo placeholder`}>
+      <span>{initials}</span>
+      <small>{name} logo</small>
+    </div>
+  );
+}
+
+function ProjectLinkPlaceholder({ href, label }: { href: string; label: string }) {
+  return (
+    <div className="impact-link-row">
+      {/* Replace this section anchor with the external project URL when it is available. */}
+      <a className="impact-project-link" href={href}>{label} <span aria-hidden="true">↗</span></a>
+      <span className="impact-link-status">Link to be added</span>
+    </div>
   );
 }
 
 function GoalSection() {
   return (
     <section className="section goal-section" id="goal">
-      <div className="section-shell">
-        <div className="goal-intro">
-          <SectionHeading eyebrow="04 / My goal" title="Help younger students find confidence in their ideas." />
-          <div className="goal-copy">
-            <p>
-              My long-term goal is to create a teaching program for younger students in Vietnam. I want to introduce critical thinking and creative writing through approachable lessons, discussions, games, and small projects.
-            </p>
-            <p>
-              Critical thinking can help students examine evidence and ask better questions. Creative writing can give them room to express their imagination and experiences with confidence. I hope the program makes learning engaging and accessible in ways that stay meaningful to each student.
-            </p>
+      <div className="section-shell impact-shell">
+        <SectionHeading
+          eyebrow="04 / Education projects & impact"
+          title="Learning Beyond the Classroom"
+          intro="Teaching has become one of the most meaningful ways for me to share what I learn. Through VietLearn and two teaching initiatives—Numbers to Networks and Math4Threads—I have worked with students in communities across Vietnam. These experiences have shaped my goal of making critical thinking and creative writing more accessible, alongside mathematics and digital skills."
+        />
+
+        <article className="featured-impact-project" id="vietlearn-project">
+          <div className="featured-project-top">
+            <div className="impact-project-story">
+              <p className="impact-project-kicker">Featured project · Founded by Tony</p>
+              <h3>VietLearn</h3>
+              <p className="impact-project-role">Founder</p>
+              <p>
+                VietLearn is an educational project I founded to teach critical thinking and creative writing to students in Vietnam. Through its lessons and activities, supported by a dedicated website, the project has reached approximately 80 students so far.
+              </p>
+              <p>
+                My goal is to continue developing VietLearn so the program can reach more students and communities across Vietnam.
+              </p>
+              <ProjectLinkPlaceholder href="#vietlearn-project" label="View Project" />
+            </div>
+
+            <figure className="vietlearn-logo">
+              <img src="/images/projects/vietlearn-logo.jpg" alt="VietLearn open-book logo" />
+              <figcaption>VietLearn · Founded by Tran Minh Quan</figcaption>
+            </figure>
           </div>
+
+          <dl className="impact-metrics" aria-label="VietLearn project highlights">
+            <div><dt>Students reached</dt><dd>80+</dd></div>
+            <div><dt>Core subject</dt><dd>Critical Thinking</dd></div>
+            <div><dt>Core subject</dt><dd>Creative Writing</dd></div>
+            <div><dt>My role</dt><dd>Founder</dd></div>
+          </dl>
+
+          <div className="impact-media-grid impact-media-featured">
+            <ImpactMediaPlaceholder label="VietLearn Teaching Photo" className="impact-media-primary" />
+            <ImpactMediaPlaceholder label="VietLearn Classroom Photo" />
+            <ImpactMediaPlaceholder label="VietLearn Website Screenshot" type="screen" />
+          </div>
+        </article>
+
+        <div className="other-projects-heading">
+          <p className="impact-section-label">Other education projects</p>
+          <h3>Teaching in different communities</h3>
         </div>
-        <GoalRoadmap />
-        <div className="project-placeholder">
-          <div className="project-placeholder-art" aria-hidden="true">
-            <span>Lesson</span><span>Idea</span><span>Story</span><span>Question</span>
+
+        <article className="impact-project impact-project-alternate" id="numbers-to-networks-project">
+          <div className="impact-project-story">
+            <div className="impact-project-title-row">
+              <ProjectLogoPlaceholder name="Numbers to Networks" initials="N2N" />
+              <div>
+                <p className="impact-project-kicker">Education project</p>
+                <h3>Numbers to Networks</h3>
+                <p className="impact-project-role">Teaching Project Participant / Student Instructor</p>
+              </div>
+            </div>
+            <p>
+              Through Numbers to Networks, I joined teaching trips that introduced students to practical digital skills. I taught students how to organise and sort data in Microsoft Excel, then supported them as they began small projects.
+            </p>
+
+            <ol className="teaching-timeline" aria-label="Numbers to Networks teaching trips">
+              <li>
+                <span className="timeline-marker">2024</span>
+                <div>
+                  <h4>An Giang, Vietnam</h4>
+                  <p className="timeline-meta">7 days · Approximately 30 students</p>
+                  <p>Worked with data in Microsoft Excel and helped students begin small projects.</p>
+                </div>
+              </li>
+              <li>
+                <span className="timeline-marker">Trip 02</span>
+                <div>
+                  <h4>Lam Dong, Vietnam</h4>
+                  <p className="timeline-meta">9 days · Approximately 30 students</p>
+                  <p>Practised sorting and organising data in Microsoft Excel, then helped students begin projects.</p>
+                </div>
+              </li>
+            </ol>
+
+            <ProjectLinkPlaceholder href="#numbers-to-networks-project" label="Visit Project" />
           </div>
-          <div>
-            <p className="eyebrow">Coming in the future</p>
-            <h3>Teaching Program Photos & Projects</h3>
-            <p>This space is ready for lesson plans, student work, event photos, and program updates.</p>
+
+          <div className="impact-project-media">
+            <ImpactMediaPlaceholder label="An Giang Teaching Photo" className="impact-media-primary" />
+            <ImpactMediaPlaceholder label="Lam Dong Teaching Photo" />
           </div>
-        </div>
+        </article>
+
+        <article className="impact-project" id="math4threads-project">
+          <div className="impact-project-story">
+            <div className="impact-project-title-row">
+              <ProjectLogoPlaceholder name="Math4Threads" initials="M4T" />
+              <div>
+                <p className="impact-project-kicker">Education project</p>
+                <h3>Math4Threads <span className="project-short-name">M4T</span></h3>
+                <p className="impact-project-role">Teaching Project Participant / Student Instructor</p>
+              </div>
+            </div>
+            <p>
+              I worked with approximately 20 students using the Math4Threads educational website to practise mathematics. Math4Threads connects learning with community support: every three correct answers contribute toward providing one piece of clothing to children in highland communities experiencing clothing shortages.
+            </p>
+
+            <dl className="compact-project-facts">
+              <div><dt>Students</dt><dd>Approximately 20</dd></div>
+              <div><dt>Location</dt><dd>Location to be added</dd></div>
+            </dl>
+
+            <div className="m4t-impact-flow" aria-label="Three correct answers contribute toward one piece of clothing">
+              <span><strong>3</strong> Correct Answers</span>
+              <span className="impact-flow-arrow" aria-hidden="true">→</span>
+              <span><strong>1</strong> Clothing Contribution</span>
+            </div>
+
+            <ProjectLinkPlaceholder href="#math4threads-project" label="Visit Project" />
+          </div>
+
+          <div className="impact-project-media">
+            <ImpactMediaPlaceholder label="M4T Teaching Trip Photo" className="impact-media-primary" />
+            <ImpactMediaPlaceholder label="M4T Website Screenshot" type="screen" />
+          </div>
+        </article>
+
+        <aside className="impact-next-step">
+          <p className="impact-section-label">My next step</p>
+          <h3>Growing VietLearn across Vietnam</h3>
+          <p>
+            These experiences have shown me how much access to the right learning opportunities can matter. My next goal is to grow VietLearn and strengthen its teaching resources so the program can reach more students and communities across Vietnam.
+          </p>
+        </aside>
       </div>
     </section>
   );
