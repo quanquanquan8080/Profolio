@@ -356,10 +356,7 @@ function AboutSection() {
           My name is Tran Minh Quan, and most people call me Tony. I am a 14-year-old student at The American School. I learn best through discussion and writing, especially when a question gives me a chance to look beyond the first answer.
         </p>
         <p>
-          I am interested in the way communication and creativity can make difficult topics easier to understand. Outside the classroom, badminton and swimming help me build discipline. Debating encourages me to consider other perspectives and explain my own ideas clearly.
-        </p>
-        <p>
-          I also enjoy sharing what I know and helping others learn. This is why I like creating projects that give me the opportunity to support other students.
+          I am interested in the way communication and creativity can make difficult topics easier to understand. I enjoy sharing what I know and helping others learn, which is why I like creating projects that give me the opportunity to support other students. Outside the classroom, badminton and swimming help me build discipline. Debating encourages me to consider other perspectives and explain my own ideas clearly.
         </p>
         <dl className="fact-panel">
           {facts.map(([label, value]) => (
