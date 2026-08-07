@@ -191,28 +191,28 @@ const interests = [
     icon: FaTableTennisPaddleBall,
     title: "Badminton",
     description:
-      "I have played badminton since Grade 6. It is special to me because it helps me improve my health. It also gives me a place to interact and have fun with my friends and peers.",
+      "I have played badminton since Grade 6. It is special to me because it helps me stay healthy while giving me time to connect with my friends and peers.",
   },
   {
     number: "02",
     icon: FaPersonSwimming,
     title: "Swimming",
     description:
-      "I love swimming because it helps me build discipline. When I am tired, stopping is not always an option. Swimming teaches me to complete my tasks to the fullest, even when I do not feel like it, just as I have to finish a full lap before resting.",
+      "I love swimming because it helps me build discipline. When I feel tired, stopping is not always an option. Swimming teaches me to finish what I start, even when I do not feel like continuing, just as I must complete a full lap before resting.",
   },
   {
     number: "03",
     icon: FaComments,
     title: "Debating",
     description:
-      "Debating is where I get to share my ideas and listen to others. It gives me a friendly academic environment for formal argument.",
+      "Debating gives me a chance to share my ideas and listen to different perspectives. It allows me to take part in formal discussions within a friendly academic environment.",
   },
   {
     number: "04",
     icon: FaPenNib,
     title: "Writing & Ideas",
     description:
-      "Writing gives me space to explore questions and organise my thoughts. I enjoy sharing ideas in ways that others can understand.",
+      "Writing gives me the space to explore questions and organise my thoughts. I enjoy sharing ideas in ways that are clear and easy for others to understand.",
   },
 ];
 
