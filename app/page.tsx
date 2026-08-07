@@ -244,12 +244,12 @@ const values = [
   },
   {
     name: "Empathy",
-    note: "Listening to other perspectives",
+    note: "I try to listen to other perspectives.",
     icon: FaHeart,
   },
   {
     name: "Responsibility",
-    note: "Following ideas with action",
+    note: "I try to follow ideas with action.",
     icon: FaClipboardCheck,
   },
 ];
