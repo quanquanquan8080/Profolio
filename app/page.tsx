@@ -1,6 +1,12 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import {
+  FaComments,
+  FaPenNib,
+  FaPersonSwimming,
+  FaTableTennisPaddleBall,
+} from "react-icons/fa6";
 
 type WritingPiece = {
   id: number;
@@ -182,28 +188,28 @@ const navLinks = [
 const interests = [
   {
     number: "01",
-    symbol: "↗",
+    icon: FaTableTennisPaddleBall,
     title: "Badminton",
     description:
-      "Badminton helps me improve my focus and reactions. It also teaches me to stay disciplined and calm under pressure.",
+      "I have played badminton since Grade 6. It is special to me because it helps me improve my health. It also gives me a place to interact and have fun with my friends and peers.",
   },
   {
     number: "02",
-    symbol: "≈",
+    icon: FaPersonSwimming,
     title: "Swimming",
     description:
-      "Swimming helps me build endurance and consistency while giving me time to think, reset, and return with confidence.",
+      "I love swimming because it helps me build discipline. When I am tired, stopping is not always an option. Swimming teaches me to complete my tasks to the fullest, even when I do not feel like it, just as I have to finish a full lap before resting.",
   },
   {
     number: "03",
-    symbol: "“ ”",
+    icon: FaComments,
     title: "Debating",
     description:
-      "I enjoy debating because it encourages me to examine different perspectives and build clear arguments. It also helps me speak with confidence.",
+      "Debating is where I get to share my ideas and listen to others. It gives me a friendly academic environment for formal argument.",
   },
   {
     number: "04",
-    symbol: "Aa",
+    icon: FaPenNib,
     title: "Writing & Ideas",
     description:
       "Writing gives me space to explore questions and organise my thoughts. I enjoy sharing ideas in ways that others can understand.",
@@ -375,15 +381,21 @@ function InterestsSection() {
           intro="Each interest gives me a different way to practise focus and expression while staying open to new perspectives."
         />
         <div className="interest-grid">
-          {interests.map((interest) => (
-            <article className="interest-card" key={interest.title}>
-              <span className="card-number">{interest.number}</span>
-              <div className="interest-icon" aria-hidden="true">{interest.symbol}</div>
-              <h3>{interest.title}</h3>
-              <p>{interest.description}</p>
-              <span className="card-line" aria-hidden="true" />
-            </article>
-          ))}
+          {interests.map((interest) => {
+            const Icon = interest.icon;
+            return (
+              <article className="interest-card" key={interest.title}>
+                <span className="card-number">{interest.number}</span>
+                <div className="interest-icon" aria-hidden="true">
+                  <Icon />
+                  <span className="interest-icon-dot" />
+                </div>
+                <h3>{interest.title}</h3>
+                <p>{interest.description}</p>
+                <span className="card-line" aria-hidden="true" />
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
