@@ -358,6 +358,9 @@ function AboutSection() {
         <p>
           I am interested in the way communication and creativity can make difficult topics easier to understand. Outside the classroom, badminton and swimming help me build discipline. Debating encourages me to consider other perspectives and explain my own ideas clearly.
         </p>
+        <p>
+          I also enjoy sharing what I know and helping others learn. This is why I like creating projects that give me the opportunity to support other students.
+        </p>
         <dl className="fact-panel">
           {facts.map(([label, value]) => (
             <div key={label}>
