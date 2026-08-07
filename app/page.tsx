@@ -2,7 +2,12 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import {
+  FaCalendarCheck,
+  FaClipboardCheck,
   FaComments,
+  FaHeart,
+  FaLightbulb,
+  FaMagnifyingGlass,
   FaPenNib,
   FaPersonSwimming,
   FaTableTennisPaddleBall,
@@ -217,12 +222,36 @@ const interests = [
 ];
 
 const values = [
-  { name: "Curiosity", note: "Asking meaningful questions" },
-  { name: "Communication", note: "Expressing ideas with care" },
-  { name: "Creativity", note: "Finding fresh possibilities" },
-  { name: "Discipline", note: "Showing up consistently" },
-  { name: "Empathy", note: "Listening to other perspectives" },
-  { name: "Responsibility", note: "Following ideas with action" },
+  {
+    name: "Curiosity",
+    note: "I try to ask meaningful questions that help me look beyond the first answer.",
+    icon: FaMagnifyingGlass,
+  },
+  {
+    name: "Communication",
+    note: "I make an effort to express myself clearly and speak with new people so I can learn from their experiences.",
+    icon: FaComments,
+  },
+  {
+    name: "Creativity",
+    note: "I develop my creativity by exploring more than one possible solution to a problem.",
+    icon: FaLightbulb,
+  },
+  {
+    name: "Discipline",
+    note: "I try to show up every day for activities that matter to me, even when I do not feel like it, because progress depends on consistent effort.",
+    icon: FaCalendarCheck,
+  },
+  {
+    name: "Empathy",
+    note: "Listening to other perspectives",
+    icon: FaHeart,
+  },
+  {
+    name: "Responsibility",
+    note: "Following ideas with action",
+    icon: FaClipboardCheck,
+  },
 ];
 
 function SectionHeading({
@@ -413,13 +442,18 @@ function ValuesSection() {
           </p>
         </div>
         <div className="values-list">
-          {values.map((value, index) => (
-            <div className="value-row" key={value.name}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{value.name}</h3>
-              <p>{value.note}</p>
-            </div>
-          ))}
+          {values.map((value, index) => {
+            const Icon = value.icon;
+
+            return (
+              <div className="value-row" key={value.name}>
+                <span className="value-number">{String(index + 1).padStart(2, "0")}</span>
+                <span className="value-icon" aria-hidden="true"><Icon /></span>
+                <h3>{value.name}</h3>
+                <p>{value.note}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
