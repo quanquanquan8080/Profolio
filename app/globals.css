@@ -1048,15 +1048,6 @@ h2 {
   border-top: 1px solid #d5e5ec;
 }
 
-.impact-project-alternate .impact-project-story {
-  grid-column: 2;
-}
-
-.impact-project-alternate .impact-project-media {
-  grid-column: 1;
-  grid-row: 1;
-}
-
 .impact-project-title-row {
   margin-bottom: 34px;
   display: grid;
@@ -1129,42 +1120,76 @@ h2 {
   min-height: 255px;
 }
 
-.teaching-timeline {
-  margin: 38px 0 0;
+.numbers-project {
+  display: block;
+}
+
+.numbers-project-intro {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: end;
+  gap: clamp(54px, 8vw, 96px);
+}
+
+.numbers-project-intro .impact-project-title-row,
+.numbers-project-intro > p {
+  margin: 0;
+}
+
+.numbers-trip-list {
+  margin: 68px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.teaching-timeline li {
-  position: relative;
-  padding: 0 0 34px 36px;
+.numbers-trip-row {
   display: grid;
-  grid-template-columns: 68px minmax(0, 1fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(48px, 7vw, 84px);
 }
 
-.teaching-timeline li:last-child {
-  padding-bottom: 0;
+.numbers-trip-row + .numbers-trip-row {
+  margin-top: 54px;
+  padding-top: 54px;
+  border-top: 1px solid #d5e5ec;
 }
 
-.teaching-timeline li::before {
+.numbers-trip-row .impact-media-placeholder {
+  display: flex;
+  flex-direction: column;
+}
+
+.numbers-trip-row .impact-media-placeholder > div {
+  flex: 1;
+  min-height: 355px;
+}
+
+.numbers-trip-details {
+  position: relative;
+  min-height: 100%;
+  padding: 48px 0 48px 38px;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  align-content: center;
+  gap: 22px;
+}
+
+.numbers-trip-details::before {
   content: "";
   position: absolute;
-  top: 7px;
-  bottom: -7px;
+  top: 18%;
+  bottom: 18%;
   left: 5px;
   width: 1px;
   background: #9fcfe2;
 }
 
-.teaching-timeline li:last-child::before {
-  bottom: calc(100% - 9px);
-}
-
-.teaching-timeline li::after {
+.numbers-trip-details::after {
   content: "";
   position: absolute;
-  top: 6px;
+  top: 50%;
   left: 0;
   width: 11px;
   height: 11px;
@@ -1172,6 +1197,7 @@ h2 {
   border-radius: 50%;
   background: var(--impact-blue);
   box-shadow: 0 0 0 1px var(--impact-blue);
+  transform: translateY(-50%);
 }
 
 .timeline-marker {
@@ -1183,27 +1209,31 @@ h2 {
   text-transform: uppercase;
 }
 
-.teaching-timeline h4 {
+.numbers-trip-copy h4 {
   margin: 0 0 4px;
   font-family: var(--font-display), serif;
-  font-size: 25px;
+  font-size: clamp(28px, 3vw, 38px);
   line-height: 1.1;
 }
 
-.teaching-timeline p {
+.numbers-trip-copy p {
   margin: 7px 0 0;
   color: #667989;
-  font-size: 13px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
-.teaching-timeline .timeline-meta {
+.numbers-trip-copy .timeline-meta {
   margin-top: 0;
   color: var(--impact-blue-deep);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .04em;
   text-transform: uppercase;
+}
+
+.numbers-project > .impact-link-row {
+  margin-top: 46px;
 }
 
 .compact-project-facts {
@@ -1865,6 +1895,11 @@ h2 {
     gap: 52px;
   }
 
+  .numbers-project-intro,
+  .numbers-trip-row {
+    gap: 42px;
+  }
+
   .impact-metrics {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1955,19 +1990,24 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .numbers-project-intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
   .vietlearn-logo {
     width: min(100%, 340px);
     margin: 0;
   }
 
-  .impact-project-alternate .impact-project-story,
-  .impact-project-alternate .impact-project-media {
-    grid-column: auto;
-    grid-row: auto;
+  .numbers-trip-row {
+    gap: 34px;
   }
 
-  .impact-project-alternate .impact-project-media {
-    order: 2;
+  .numbers-trip-details {
+    padding-left: 30px;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 14px;
   }
 
   .impact-project-media {
@@ -2135,10 +2175,27 @@ h2 {
     font-size: 19px;
   }
 
-  .teaching-timeline li {
-    padding-left: 28px;
-    grid-template-columns: 58px minmax(0, 1fr);
-    gap: 13px;
+  .numbers-trip-list {
+    margin-top: 52px;
+  }
+
+  .numbers-trip-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .numbers-trip-row + .numbers-trip-row {
+    margin-top: 48px;
+    padding-top: 48px;
+  }
+
+  .numbers-trip-row .impact-media-placeholder > div {
+    min-height: 245px;
+  }
+
+  .numbers-trip-details {
+    min-height: 230px;
+    padding: 34px 0 34px 30px;
   }
 
   .m4t-impact-flow {

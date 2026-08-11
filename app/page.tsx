@@ -489,12 +489,26 @@ function ProjectLogoPlaceholder({ name, initials }: { name: string; initials: st
   );
 }
 
-function ProjectLinkPlaceholder({ href, label }: { href: string; label: string }) {
+function ProjectLink({
+  href,
+  label,
+  isPlaceholder = false,
+}: {
+  href: string;
+  label: string;
+  isPlaceholder?: boolean;
+}) {
   return (
     <div className="impact-link-row">
-      {/* Replace this section anchor with the external project URL when it is available. */}
-      <a className="impact-project-link" href={href}>{label} <span aria-hidden="true">↗</span></a>
-      <span className="impact-link-status">Link to be added</span>
+      <a
+        className="impact-project-link"
+        href={href}
+        target={isPlaceholder ? undefined : "_blank"}
+        rel={isPlaceholder ? undefined : "noreferrer"}
+      >
+        {label} <span aria-hidden="true">↗</span>
+      </a>
+      {isPlaceholder && <span className="impact-link-status">Link to be added</span>}
     </div>
   );
 }
@@ -521,7 +535,7 @@ function GoalSection() {
               <p>
                 My goal is to continue developing VietLearn so the program can reach more students and communities across Vietnam.
               </p>
-              <ProjectLinkPlaceholder href="#vietlearn-project" label="View Project" />
+              <ProjectLink href="https://vietlearn-khaki.vercel.app/student" label="View Project" />
             </div>
 
             <figure className="vietlearn-logo">
@@ -549,8 +563,8 @@ function GoalSection() {
           <h3>Teaching in different communities</h3>
         </div>
 
-        <article className="impact-project impact-project-alternate" id="numbers-to-networks-project">
-          <div className="impact-project-story">
+        <article className="impact-project numbers-project" id="numbers-to-networks-project">
+          <div className="impact-project-story numbers-project-intro">
             <div className="impact-project-title-row">
               <ProjectLogoPlaceholder name="Numbers to Networks" initials="N2N" />
               <div>
@@ -562,33 +576,35 @@ function GoalSection() {
             <p>
               Through Numbers to Networks, I joined teaching trips that introduced students to practical digital skills. I taught students how to organise and sort data in Microsoft Excel, then supported them as they began small projects.
             </p>
+          </div>
 
-            <ol className="teaching-timeline" aria-label="Numbers to Networks teaching trips">
-              <li>
+          <ol className="numbers-trip-list" aria-label="Numbers to Networks teaching trips">
+            <li className="numbers-trip-row">
+              <ImpactMediaPlaceholder label="An Giang Teaching Photo" />
+              <div className="numbers-trip-details">
                 <span className="timeline-marker">2024</span>
-                <div>
+                <div className="numbers-trip-copy">
                   <h4>An Giang, Vietnam</h4>
                   <p className="timeline-meta">7 days · Approximately 30 students</p>
                   <p>Worked with data in Microsoft Excel and helped students begin small projects.</p>
                 </div>
-              </li>
-              <li>
+              </div>
+            </li>
+            <li className="numbers-trip-row">
+              <ImpactMediaPlaceholder label="Lam Dong Teaching Photo" />
+              <div className="numbers-trip-details">
                 <span className="timeline-marker">Trip 02</span>
-                <div>
+                <div className="numbers-trip-copy">
                   <h4>Lam Dong, Vietnam</h4>
                   <p className="timeline-meta">9 days · Approximately 30 students</p>
                   <p>Practised sorting and organising data in Microsoft Excel, then helped students begin projects.</p>
                 </div>
-              </li>
-            </ol>
+              </div>
+            </li>
+          </ol>
 
-            <ProjectLinkPlaceholder href="#numbers-to-networks-project" label="Visit Project" />
-          </div>
-
-          <div className="impact-project-media">
-            <ImpactMediaPlaceholder label="An Giang Teaching Photo" className="impact-media-primary" />
-            <ImpactMediaPlaceholder label="Lam Dong Teaching Photo" />
-          </div>
+          {/* Replace this section anchor with the external project URL when it is available. */}
+          <ProjectLink href="#numbers-to-networks-project" label="Visit Project" isPlaceholder />
         </article>
 
         <article className="impact-project" id="math4threads-project">
@@ -616,7 +632,7 @@ function GoalSection() {
               <span><strong>1</strong> Clothing Contribution</span>
             </div>
 
-            <ProjectLinkPlaceholder href="#math4threads-project" label="Visit Project" />
+            <ProjectLink href="https://m4tstudy.org/" label="Visit Project" />
           </div>
 
           <div className="impact-project-media">
