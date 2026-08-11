@@ -833,7 +833,7 @@ h2 {
 .impact-project-story > h3 {
   margin: 8px 0 6px;
   font-family: var(--font-display), serif;
-  font-size: clamp(44px, 5vw, 66px);
+  font-size: clamp(50px, 5.6vw, 74px);
   line-height: 1;
   letter-spacing: -0.03em;
 }
@@ -1059,7 +1059,7 @@ h2 {
 .impact-project-title-row h3 {
   margin: 5px 0 8px;
   font-family: var(--font-display), serif;
-  font-size: clamp(35px, 4vw, 50px);
+  font-size: clamp(39px, 4.4vw, 57px);
   line-height: 1;
   letter-spacing: -0.025em;
 }
@@ -1311,11 +1311,14 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 9px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid rgba(13, 112, 158, .32);
   color: var(--impact-blue-deep);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: .08em;
   text-transform: uppercase;
+  transition: border-color .2s ease, color .2s ease;
 }
 
 .impact-project-link span {
@@ -1325,6 +1328,12 @@ h2 {
 .impact-project-link:hover span,
 .impact-project-link:focus-visible span {
   transform: translate(3px, -3px);
+}
+
+.impact-project-link:hover,
+.impact-project-link:focus-visible {
+  border-color: var(--impact-blue);
+  color: #075d88;
 }
 
 .impact-link-status {
