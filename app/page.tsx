@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import {
+  FaAward,
   FaCalendarCheck,
   FaClipboardCheck,
   FaComments,
@@ -186,6 +187,7 @@ const navLinks = [
   { label: "About Me", href: "#about" },
   { label: "Interests", href: "#interests" },
   { label: "Projects", href: "#goal" },
+  { label: "Achievements", href: "#achievements" },
   { label: "Writing", href: "#writing" },
   { label: "Contact", href: "#contact" },
 ];
@@ -253,6 +255,11 @@ const values = [
     icon: FaClipboardCheck,
   },
 ];
+
+const achievementPlaceholders = Array.from(
+  { length: 6 },
+  (_, index) => String(index + 1).padStart(2, "0"),
+);
 
 function SectionHeading({
   eyebrow,
@@ -653,6 +660,41 @@ function GoalSection() {
   );
 }
 
+function AchievementsSection() {
+  return (
+    <section className="section achievements-section" id="achievements">
+      <div className="section-shell">
+        <div className="achievements-heading-row">
+          <SectionHeading
+            eyebrow="05 / Achievements"
+            title="Achievements & Milestones"
+            intro="This section is ready for six achievements that reflect the experiences and work I am proud of."
+          />
+          <p className="achievement-count"><span>06</span> spaces ready</p>
+        </div>
+
+        <div className="achievements-grid">
+          {achievementPlaceholders.map((number) => (
+            <article className="achievement-placeholder" key={number}>
+              <div className="achievement-card-top">
+                <span className="achievement-number">{number}</span>
+                <span className="achievement-icon" aria-hidden="true"><FaAward /></span>
+              </div>
+              <p className="achievement-placeholder-label">Achievement placeholder</p>
+              <h3>Title to be added</h3>
+              <p>Add a short description of this achievement when you are ready.</p>
+              <div className="achievement-meta">
+                <span>Date to be added</span>
+                <span>Details to be added</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WritingCard({ piece, onOpen }: { piece: WritingPiece; onOpen: (piece: WritingPiece) => void }) {
   return (
     <article className="writing-card">
@@ -725,7 +767,7 @@ function WritingSection() {
       <div className="section-shell">
         <div className="writing-heading-row">
           <SectionHeading
-            eyebrow="05 / Writing portfolio"
+            eyebrow="06 / Writing portfolio"
             title="Ten essays exploring technology and culture."
             intro="Each essay begins with a question about how artificial intelligence may affect Vietnamese traditions and everyday life. Open any card to read the complete paper."
           />
@@ -746,7 +788,7 @@ function ReflectionSection() {
   return (
     <section className="reflection section">
       <div className="section-shell reflection-inner">
-        <p className="eyebrow">06 / What writing means to me</p>
+        <p className="eyebrow">07 / What writing means to me</p>
         <blockquote>
           “Writing helps me understand my own ideas more clearly.”
         </blockquote>
@@ -771,7 +813,7 @@ function ContactSection() {
     <section className="section contact-section" id="contact">
       <div className="section-shell contact-layout">
         <div className="contact-copy">
-          <SectionHeading eyebrow="07 / Contact" title="Thank you for visiting my portfolio." />
+          <SectionHeading eyebrow="08 / Contact" title="Thank you for visiting my portfolio." />
           <p>
             I look forward to adding new writing and sharing the first steps of my teaching program here.
           </p>
@@ -826,6 +868,7 @@ export default function Home() {
         <InterestsSection />
         <ValuesSection />
         <GoalSection />
+        <AchievementsSection />
         <WritingSection />
         <ReflectionSection />
         <ContactSection />
